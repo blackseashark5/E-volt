@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Styles for the left menu */
+  .left-menu {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+  }
+
+  .left-menu a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+
+  .left-menu a:hover {
+    color: #4CAF50;
+  }
+
+  /* Styles for the content area */
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+
+  /* Styles for hidden content sections */
+  .content-section {
+    display: none;
+  }
+
+  /* Styles for visible content sections */
+  .content-section.active {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="left-menu">
+  <a href="#" data-section="dashboard">Dashboard</a>
+  <a href="#" data-section="timetable">Timetable</a>
+  <a href="#" data-section="attendance">Attendance Tracking</a>
+  <a href="#" data-section="staff-filter">Staff Filter</a>
+</div>
+
+<div class="content">
+  <div id="dashboard" class="content-section">
+    <h2>Classroom Efficiency and Security Dashboard</h2>
+    <main>
+      <div class="chart-container">
+          <canvas id="efficiencyChart"></canvas>
+      </div>
+      <div class="chart-container">
+          <canvas id="securityChart"></canvas>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const efficiencyCtx = document.getElementById('efficiencyChart').getContext('2d');
+        const efficiencyChart = new Chart(efficiencyCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Class A', 'Class B', 'Class C', 'Class D', 'Class E'],
+                datasets: [{
+                    label: 'Efficiency Score',
+                    data: [75, 88, 95, 80, 90],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const securityCtx = document.getElementById('securityChart').getContext('2d');
+        const securityChart = new Chart(securityCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: 'Security Incidents',
+                    data: [5, 3, 4, 2, 6],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+  </div>
+
+
+
+  
+  <div id="timetable" class="content-section">
+    <h2>Timetable</h2>
+    <p>
+      
+      
+      
+      
+      
+      
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Time Table 2023-24</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        tfoot td {
+            font-weight: bold;
+            background-color: #f4f4f4;
+            text-align: right;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1em;
+            margin: 4px 2px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .view-dropdown {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .view-dropdown select {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .highlight {
+            background-color: #ffff99;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Time Table 2023-24</h1>
+        
+        <div class="view-dropdown">
+            <label for="viewSelect">View: </label>
+            <select id="viewSelect" onchange="changeView()">
+                <option value="normal">Normal View</option>
+                <option value="dayOrder">Day Order View</option>
+            </select>
+        </div>
+
+        <div id="normalView" class="view">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search for courses..." onkeyup="filterTable()">
+            </div>
+
+            <table id="timetable">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Course Code</th>
+                        <th>Course Title</th>
+                        <th>Credit</th>
+                        <th>Regn. Type</th>
+                        <th>Category</th>
+                        <th>Course Type</th>
+                        <th>Faculty Name</th>
+                        <th>Slot</th>
+                        <th>GCR Code</th>
+                        <th>Room No.</th>
+                        <th>Academic Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added by JavaScript -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td colspan="9" id="total-credits">21</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div id="dayOrderView" class="view" style="display: none;">
+            <table id="timetableDayOrder">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>DO 1</th>
+                        <th>DO 2</th>
+                        <th>DO 3</th>
+                        <th>DO 4</th>
+                        <th>DO 5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="button-container">
+            <button class="button" onclick="printTable()">Print Table</button>
+        </div>
+        
+        <div class="footer">
+            © 2024 My Time Table | Created with ❤️
+        </div>
+    </div>
+
+    <script>
+        const timetableDataNormal = [
+            { sno: 1, code: '21CSC302J', title: 'Computer Networks', credit: 4, regnType: 'Regular', category: 'Professional Core', type: 'Lab Based Theory', faculty: 'Dr. Tamizhselvan C (103020)', slot: 'A', gcr: '', room: '508', year: 'AY2024-25-ODD' },
+            { sno: 2, code: '21CSE292P', title: 'Artificial Intelligence of Things', credit: 3, regnType: 'Regular', category: 'Professional Elective', type: 'Project Based Theory', faculty: 'Dr. S. Ushasukhanya (101591)', slot: 'B', gcr: '', room: 'TP 101', year: 'AY2024-25-ODD' },
+            { sno: 3, code: '21MAB302T', title: 'Discrete Mathematics', credit: 4, regnType: 'Regular', category: 'Basic Science', type: 'Theory', faculty: 'Dr. E. Sujatha (100440)', slot: 'C', gcr: '', room: '508', year: 'AY2024-25-ODD' },
+            { sno: 4, code: '21CSC301T', title: 'Formal Language and Automata', credit: 3, regnType: 'Regular', category: 'Professional Core', type: 'Theory', faculty: 'John Deva Prasanna D S (103156)', slot: 'D', gcr: '', room: '508', year: 'AY2024-25-ODD' },
+            { sno: 5, code: '21CSC307P', title: 'Machine Learning for Data Analytics', credit: 3, regnType: 'Regular', category: 'Professional Core', type: 'Project Based Theory', faculty: 'Dr. T. Ragupathi (103254)', slot: 'F', gcr: '', room: '508', year: 'AY2024-25-ODD' },
+            { sno: 6, code: '21ECO103T', title: 'Modern Wireless Communication Systems', credit: 3, regnType: 'Regular', category: 'Open Elective', type: 'Theory', faculty: 'Dr. B. Priyalakshmi (100248)', slot: 'G', gcr: '', room: 'B301', year: 'AY2024-25-ODD' },
+            { sno: 7, code: '21CSC302J', title: 'Computer Networks', credit: 4, regnType: 'Regular', category: 'Professional Core', type: 'Lab Based Theory', faculty: 'Dr. Tamizhselvan C (103020)', slot: 'A', gcr: '', room: '508', year: 'AY2024-25-ODD' },
+            { sno: 8, code: '21CSE292P', title: 'Artificial Intelligence of Things', credit: 3, regnType: 'Regular', category: 'Professional Elective', type: 'Project Based Theory', faculty: 'Dr. S. Ushasukhanya (101591)', slot: 'B', gcr: '', room: 'TP 101', year: 'AY2024-25-ODD' },
+            { sno: 9, code: '21MAB302T', title: 'Discrete Mathematics', credit: 4, regnType: 'Regular', category: 'Basic Science', type: 'Theory', faculty: 'Dr. E. Sujatha (100440)', slot: 'C', gcr: '', room: '508', year: 'AY2024-25-ODD' },
+            { sno: 10, code: '21CSC301T', title: 'Formal Language and Automata', credit: 3, regnType: 'Regular', category: 'Professional Core', type: 'Theory', faculty: 'John Deva Prasanna D S (103156)', slot: 'D', gcr: '', room: '508', year: 'AY2024-25-ODD' },
+            { sno: 11, code: '21CSC307P', title: 'Machine Learning for Data Analytics', credit: 3, regnType: 'Regular', category: 'Professional Core', type: 'Project Based Theory', faculty: 'Dr. T. Ragupathi (103254)', slot: 'F', gcr: '', room: '508', year: 'AY2024-25-ODD' },
+            { sno: 12, code: '21ECO103T', title: 'Modern Wireless Communication Systems', credit: 3, regnType: 'Regular', category: 'Open Elective', type: 'Theory', faculty: 'Dr. B. Priyalakshmi (100248)', slot: 'G', gcr: '', room: 'B301', year: 'AY2024-25-ODD' }
+        ];
+
+        const timetableDataDayOrder = [
+            { time: '9:00 AM - 10:00 AM', do1: '21CSC302J', do2: '21CSE292P', do3: '21MAB302T', do4: '21CSC301T', do5: '21CSC307P' },
+            { time: '10:00 AM - 11:00 AM', do1: '21ECO103T', do2: '21CSC302J', do3: '21CSE292P', do4: '21MAB302T', do5: '21CSC301T' },
+            { time: '11:00 AM - 12:00 PM', do1: '21CSC307P', do2: '21ECO103T', do3: '21CSC302J', do4: '21CSE292P', do5: '21MAB302T' },
+            { time: '12:00 PM - 1:00 PM', do1: '21CSC301T', do2: '21CSC307P', do3: '21ECO103T', do4: '21CSC302J', do5: '21CSE292P' },
+            { time: '1:00 PM - 2:00 PM', do1: 'Lunch Break', do2: 'Lunch Break', do3: 'Lunch Break', do4: 'Lunch Break', do5: 'Lunch Break' }
+        ];
+
+        function populateNormalView() {
+            const tableBody = document.querySelector('#timetable tbody');
+            tableBody.innerHTML = '';
+
+            timetableDataNormal.forEach(row => {
+                const tr = document.createElement('tr');
+                Object.values(row).forEach(value => {
+                    const td = document.createElement('td');
+                    td.textContent = value;
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            });
+        }
+
+        function populateDayOrderView() {
+            const tableBody = document.querySelector('#timetableDayOrder tbody');
+            tableBody.innerHTML = '';
+
+            timetableDataDayOrder.forEach(row => {
+                const tr = document.createElement('tr');
+                Object.values(row).forEach(value => {
+                    const td = document.createElement('td');
+                    td.textContent = value;
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            });
+        }
+
+        function changeView() {
+            const view = document.getElementById('viewSelect').value;
+            const normalView = document.getElementById('normalView');
+            const dayOrderView = document.getElementById('dayOrderView');
+
+            if (view === 'normal') {
+                normalView.style.display = 'block';
+                dayOrderView.style.display = 'none';
+                populateNormalView();
+            } else {
+                normalView.style.display = 'none';
+                dayOrderView.style.display = 'block';
+                populateDayOrderView();
+            }
+        }
+
+        function filterTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById('timetable');
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName('td');
+                let found = false;
+
+                for (let j = 1; j < td.length; j++) {
+                    if (td[j].textContent.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (found) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
+        }
+
+        function printTable() {
+            const originalContent = document.body.innerHTML;
+            const tableHtml = document.querySelector('.container').innerHTML;
+            document.body.innerHTML = tableHtml;
+            window.print();
+            document.body.innerHTML = originalContent;
+        }
+
+        // Initialize with normal view
+        changeView();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+      </p>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div id="attendance" class="content-section">
+    <h2>Attendance Tracking</h2>
+    <p>
+      
+      
+      
+      
+      
+      
+      
+      
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <title>SMART ATTENDANCE SYSTEM</title>
+          <meta charset="UTF-8">
+          <!-- Firebase configuration script -->
+          <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+          <script>
+              // Initialize Firebase
+              const firebaseConfig = {
+                  apiKey: "AIzaSyCuA6poN9k-AUZXxgLGs_pm8FOXbzkZH1g",
+                  authDomain: "rfidattendance-c6ac1.firebaseapp.com",
+                  databaseURL: "https://rfidattendance-c6ac1-default-rtdb.firebaseio.com",
+                  projectId: "rfidattendance-c6ac1",
+                  storageBucket: "rfidattendance-c6ac1.appspot.com",
+                  messagingSenderId: "291958559206",
+                  appId: "1:291958559206:web:11d42b02c5c8a49c4c4627"
+              };
+              firebase.initializeApp(firebaseConfig);
+          </script>
+          <!-- Stylesheets 
+          <link href="style.css" rel="stylesheet">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous"/>
+          <link href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css" rel="stylesheet">
+            <style>
+              .heading h1{
+          text-align: center;
+          font-size: 60px;
+          letter-spacing: 3px;
+          background: #007BFF;
+          font-family: 'Courier New', Courier, monospace;
+          color: white;
+      }
+      @media only screen and (max-width: 600px) {
+          .heading h1{
+            font-size: 20px;
+        }
+      }
+      .heading{
+        position: relative;
+      }
+      .heading i{
+        position: absolute;
+        left: 90%;
+        top: 14%;
+      }
+      ul{
+          padding: 0;
+          margin: 0;
+          list-style: none;
+      }
+      .live{
+          border: 1px solid black;
+          width: 40%;
+          margin: 10px;
+          padding: 10px;
+          float: left;
+      }
+      .live img{
+          float: left;
+      }
+      .parkings{
+          border: 1px solid black;
+          width: 100%;
+          margin: 10px;
+          padding: 10px;
+      }
+      .bookContainer{
+          border: 1px solid black;
+          width: 40%;
+          margin: 10px;
+          padding: 10px;
+          float: left;
+      }
+      
+      .show{
+          display: block;
+      }
+      
+      
+      /* The switch - the box around the slider */
+      .switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+        }
+        
+        /* Hide default HTML checkbox */
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        
+        /* The slider */
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        
+        input:checked + .slider {
+          background-color: #2196F3;
+        }
+        
+        input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3;
+        }
+        
+        input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+        }
+        
+        /* Rounded sliders */
+        .slider.round {
+          border-radius: 34px;
+        }
+        
+        .slider.round:before {
+          border-radius: 50%;
+        }
+      
+        #form{
+          position: relative;
+        }
+        #heading2{
+          position: absolute;
+          top: 50%;
+        }
+      
+      .modal-header, h4, .close {
+          background-color: #5cb85c;
+          color:white !important;
+          text-align: center;
+          font-size: 30px;
+      }
+      .modal-footer {
+          background-color: #f9f9f9;
+      }
+      @media (min-width:767px){
+        #contain{
+            padding-top: 20px;
+            width: 40%;
+        }
+      }
+      .page{
+        height:560px;
+        overflow-y: scroll;
+      }
+      .heading h1 {
+        color: #ffffff;
+        line-height: 60px;
+        font-weight: bold;
+        font-family: 'Aldrich';
+        font-size: 60px;
+        letter-spacing: 2px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 0px;
+        padding-top:20px;
+        padding-bottom: 20px;
+      }
+            </style> -->
+      </head>
+      <body>
+      <div class="heading">
+          <h1>SMART ATTENDANCE SYSTEM</h1>
+      </div>
+      <div class="container">
+          <div class="card">
+              <div class="card-header">
+                  <i class="fa fa-table mr-1"></i>
+                  Attendance Summary
+              </div>
+              <div class="card-body">
+                  <button type="button" class="btn btn-primary" id="export">
+                      <i class="fa fa-download" aria-hidden="true"></i> Export CSV
+                  </button>
+                  <div class="table-responsive">
+                      <table class="table table-bordered display responsive nowrap" id="buttonTable" width="100%" cellspacing="0" data-order="[]">
+                          <thead>
+                          <tr>
+                              <th>User ID</th>
+                              <th>Device Id</th>
+                              <th>Time</th>
+                              <th>Status</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      
+          <!-- Modal for updating device information -->
+          <div class="modal fade" id="updateDeviceModal" tabindex="-1" role="dialog" aria-labelledby="updateDeviceModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="updateDeviceModalLabel">Update Device</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <!-- Device update form -->
+                          <div class="form-group">
+                              <label for="cardId">Select Card ID:</label>
+                              <select class="form-control" id="cardId">
+                                  <!-- Option tags for each existing card ID -->
+                              </select>
+                          </div>
+                          <div class="form-group">
+                              <label for="newName">New Name:</label>
+                              <input type="text" class="form-control" id="newName">
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" id="updateDevice">Update Device</button>
+                      </div>
+                  </div>
+              </div>
+          </div> 
+      
+          <!-- JavaScript libraries -->
+          <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+          <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+          <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
+          <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+          <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
+          <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+          <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+      
+          <!-- Your JavaScript code -->
+          <script>
+              $(function(){
+                  $('.users').html('No data available');
+                  document.getElementById("export").onclick = function() { exportCSV() };
+      
+                  function exportCSV() {
+                      //// export CSV
+                      console.log("exportCSV");
+                      $('#buttonTable').DataTable().button(0).trigger();
+                  }
+      
+                  var button_table = $('#buttonTable').DataTable({
+                      "ordering": false,
+                      "paging": false,
+                      buttons: [
+                          {
+                              extend: 'csv',
+                              filename: 'attendance_summary',
+                              extension: '.csv'
+                          }
+                      ],
+                      initComplete: function() {
+                          $('.buttons-csv').hide();
+                      }
+                  });
+      
+                  // Function to fetch the current date from an online source
+                  function getCurrentDate() {
+                      var currentDate;
+                      $.ajax({
+                          url: "https://worldtimeapi.org/api/timezone/UTC",
+                          method: "GET",
+                          async: false,
+                          success: function(data) {
+                              currentDate = data.datetime.split("T")[0];
+                          }
+                      });
+                      return currentDate;
+                  }
+      
+                  // Populate the dropdown with existing card IDs from Firebase
+                  var cardIdDropdown = $('#cardId');
+                  firebase.database().ref('/users').once('value', function(snapshot) {
+                      snapshot.forEach(function(childSnapshot) {
+                          var cardId = childSnapshot.key;
+                          var option = document.createElement("option");
+                          option.text = cardId;
+                          cardIdDropdown.append(option);
+                      });
+                  });
+      
+                  // Update Device Name and ID when the modal button is clicked
+                  $('#updateDevice').click(function() {
+                      var selectedCardId = cardIdDropdown.val();
+                      var newName = $('#newName').val();
+      
+                      if (selectedCardId && newName) {
+                          // Update the name and device ID in Firebase
+                          firebase.database().ref('/users/' + selectedCardId).set(newName);
+                          alert('Device information updated successfully.');
+                          $('#updateDeviceModal').modal('hide'); // Close the modal
+                      } else {
+                          alert('Please select a Card ID and enter a New Name.');
+                      }
+                  });
+      
+                  firebase.database().ref('/').on('value', function(snap) {
+                      if (snap.val().attendance) {
+                          button_table.clear().draw();
+                          let arr = Object.values(snap.val().attendance);
+                          console.log(arr);
+      
+                          arr.forEach(function(elem, i) {
+                              // Fetch the time from Firebase
+                              var timeFromFirebase = elem.time; // Assuming elem.time is a valid timestamp from Firebase
+                              
+                              // Fetch the current date online
+                              var currentDate = getCurrentDate();
+                              
+                              // Combine the time from Firebase with the current date
+                              var dateTime = currentDate + " " + timeFromFirebase;
+      
+                              var row = `<tr>
+                                  <td>${elem.uid}</td>
+                                  <td>${elem.id}</td>
+                                  <td>${dateTime}</td> <!-- Display date and time -->
+                                  <td><span class="badge badge-${elem.status ? 'success' : 'danger'}">${elem.status ? 'Check In' : 'Check Out'}</span></td>
+                              </tr>`;
+                              button_table.rows.add($(row)).draw();
+                          });
+                      }
+                  });
+              });
+          </script>
+      </body>
+      
+
+
+
+
+
+
+
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+  </div>
+  <div id="staff-filter" class="content-section">
+    <h2>Access Control</h2>
+    <p>
+
+
+
+
+
+      
+      
+      
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            height: 100px;
+            resize: vertical;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .conditional {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Room Booking Form</h1>
+        <form id="booking-form">
+            <div class="form-group">
+                <label for="building">Select Building:</label>
+                <select id="building" name="building">
+                    <option value="">Select Building</option>
+                    <option value="Building A">Building A</option>
+                    <option value="Building B">Building B</option>
+                    <!-- Add more buildings as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="floor">Select Floor:</label>
+                <select id="floor" name="floor">
+                    <option value="">Select Floor</option>
+                    <option value="Floor 1">Floor 1</option>
+                    <option value="Floor 2">Floor 2</option>
+                    <!-- Add more floors as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="room">Select Room:</label>
+                <select id="room" name="room">
+                    <option value="">Select Room</option>
+                    <option value="Room 101">Room 101</option>
+                    <option value="Room 102">Room 102</option>
+                    <!-- Add more rooms as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="conducting-class">Will you be conducting a class?</label>
+                <select id="conducting-class" name="conducting-class">
+                    <option value="">Select Option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div id="class-details" class="conditional">
+                <div class="form-group">
+                    <label for="class-type">Is it a regular class or a special event?</label>
+                    <select id="class-type" name="class-type">
+                        <option value="">Select Type</option>
+                        <option value="regular">Regular Class</option>
+                        <option value="special">Special Event</option>
+                    </select>
+                </div>
+
+                <div id="special-event-details" class="conditional">
+                    <div class="form-group">
+                        <label for="event-reason">Reason for Special Event:</label>
+                        <textarea id="event-reason" name="event-reason" placeholder="Explain the purpose of the special event"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Duration (hours):</label>
+                <input type="number" id="duration" name="duration" min="1" step="0.5" placeholder="Enter duration in hours">
+            </div>
+
+            <div id="no-class-reason" class="conditional">
+                <div class="form-group">
+                    <label for="no-class-reason">Reason for not conducting a class:</label>
+                    <textarea id="no-class-reason" name="no-class-reason" placeholder="Explain why you are not conducting a class"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('conducting-class').addEventListener('change', function() {
+            var classDetails = document.getElementById('class-details');
+            var noClassReason = document.getElementById('no-class-reason');
+            var specialEventDetails = document.getElementById('special-event-details');
+            
+            if (this.value === 'yes') {
+                classDetails.style.display = 'block';
+                noClassReason.style.display = 'none';
+            } else {
+                classDetails.style.display = 'none';
+                noClassReason.style.display = 'block';
+            }
+        });
+
+        document.getElementById('class-type').addEventListener('change', function() {
+            var specialEventDetails = document.getElementById('special-event-details');
+            if (this.value === 'special') {
+                specialEventDetails.style.display = 'block';
+            } else {
+                specialEventDetails.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+    </p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuLinks = document.querySelectorAll('.left-menu a');
+    const contentSections = document.querySelectorAll('.content-section');
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        // Remove active class from all sections
+        contentSections.forEach(section => {
+          section.classList.remove('active');
+        });
+
+        // Add active class to the selected section
+        const sectionId = link.getAttribute('data-section');
+        document.getElementById(sectionId).classList.add('active');
+      });
+    });
+
+    // Activate the first section by default
+    if (menuLinks.length > 0) {
+      menuLinks[0].click();
+    }
+  });
+</script>
+
+</body>
+</html>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuLinks = document.querySelectorAll('.left-menu a');
+    const contentSections = document.querySelectorAll('.content-section');
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        // Remove active class from all sections
+        contentSections.forEach(section => {
+          section.classList.remove('active');
+        });
+
+        // Add active class to the selected section
+        const sectionId = link.getAttribute('data-section');
+        document.getElementById(sectionId).classList.add('active');
+      });
+    });
+
+    // Activate the first section by default
+    if (menuLinks.length > 0) {
+      menuLinks[0].click();
+    }
+  });
+</script>
+
+</body>
+</html>
